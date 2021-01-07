@@ -5,9 +5,9 @@ import (
 )
 
 /**
-	Author: huangning
+	Author: huang ning
 	Date: 2021/01/06
-	Func: 搭建Kite服务端
+	Func: 启动服务器
  */
 
 func main() {
