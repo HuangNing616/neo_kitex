@@ -11,11 +11,12 @@ func TestHuang(t *testing.T) {
 
 	k := kite.New("huang_client", "1.0.0")
 
-	// Connect to our math kite
+	//Connect to our math kite
 	mathWorker := k.NewClient("http://localhost:3636/kite")
-	mathWorker.Dial()
+	_ = mathWorker.Dial()
 
-	response, _ := mathWorker.Tell("square", 4) // call "square" method with argument 4
+	// call "square" method with argument 4
+	response, _ := mathWorker.Tell("square", 4)
 
 	t.Log("日志信息开始记录... ...")
 
