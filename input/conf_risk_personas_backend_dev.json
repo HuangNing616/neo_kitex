@@ -1,0 +1,85 @@
+{
+  "risk_personas_db": {
+    "database": "omega_testdb",
+    "settings": "charset=utf8&parseTime=True&loc=Local",
+    "write": {
+      "consul": "10.225.100.173:3306",
+      "username": "omega_testdb_w",
+      "password": "deXkRQHaWFMzDh3_vC5Au8xaBdIbwDFf"
+    },
+    "read": {
+      "consul": "10.225.100.173:3306",
+      "username": "omega_testdb_w",
+      "password": "deXkRQHaWFMzDh3_vC5Au8xaBdIbwDFf"
+    }
+  },
+  "default_abase_table": "sandbox",
+  "default_abase_cluster": "abase_caijing_risk_feature",
+  "abase_configs": [
+    {
+      "abase_tables": ["sandbox"],
+      "abase_cluster": "abase_caijing_risk_feature"
+    },
+    {
+      "abase_tables": ["sandbox"],
+      "abase_cluster": "abase_caijing_risk_feature_realtime"
+    }
+  ],
+  "accounts": [
+    {
+      "en_name": "guest",
+      "cn_name": "游客",
+      "password": "guest",
+      "role": "guest"
+    },
+    {
+      "en_name": "zhangchong.zc",
+      "cn_name": "张冲",
+      "password": "zhangchong.zc",
+      "role": "admin"
+    },
+    {
+      "en_name": "duruiling",
+      "cn_name": "杜瑞岭",
+      "password": "duruiling",
+      "role": "admin"
+    },
+    {
+      "en_name": "caoqiang",
+      "cn_name": "曹强",
+      "password": "caoqiang",
+      "role": "admin"
+    },
+    {
+      "en_name": "chenzixin",
+      "cn_name": "陈子鑫",
+      "password": "chenzixin",
+      "role": "admin"
+    },
+    {
+      "en_name": "yangtianhao",
+      "cn_name": "杨添浩",
+      "password": "yangtianhao",
+      "role": "admin"
+    },
+    {
+      "en_name": "rentianjiao",
+      "cn_name": "任天娇",
+      "password": "rentianjiao",
+      "role": "admin"
+    }
+  ],
+  "bg_table": "caijing.risk",
+  "env": "dev",
+  "merge_log_kafka": {
+    "topic": "caijing_risk_realtime_feature_test",
+    "cluster": "kafka_test",
+    "psm": "caijing.omega.feature_merge_service"
+  },
+  "site": {
+    "host": "http://localhost:8001",
+    "rootPath": "/",
+    "cookieAgeInSecond": 259200,
+    "ssoHost": "https://sso.bytedance.com"
+  }
+}

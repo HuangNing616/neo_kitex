@@ -12,7 +12,7 @@ import (
 /**
 	Author: huang ning
 	Date: 2020/01/06
-	Func: 数据库连接并且实现CRUD操作
+	Func: MySQL数据库连接并且实现CRUD操作
 	Note:
 	1. Go将数据库操作分为两类：Query与Exec, 区别在于前者会返回结果，而后者不会
 	2. QueryRow表示只返回一行的查询，作为Query的一个常见特例。
