@@ -11,12 +11,15 @@ import (
 )
 
 func TestConnectRedis(t *testing.T) {
+
 	Init()
 	stringsOps("strlen", "mystr", "")
+	stringsOps("strlen", "mynum", "")
 	listsOps("llen", "mylist", "")
 	setsOps("scard", "myset", "")
-	zsetsOps("zcard", "myzset",0,"")
+	zsetsOps("zcount", "myzset",0,"", "(1", "inf")
 	hashedOps("hlen", "myhash", " ", " ")
-	//deleteOps( "mynum")
+	deleteOps( "mynum")
+
 }
 

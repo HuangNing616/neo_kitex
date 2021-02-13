@@ -28,13 +28,19 @@ func stringsOps(command string, key string, value string, args...string)  {
 		if err != nil {
 			fmt.Println("SET err=", err)
 		}
-		fmt.Println("set operation success !!!")
+		fmt.Println("SET operation success !!!")
 	}else if command == "GET" {
 		val, err := redis.String(stringConn.Do("GET", key))
 		if err != nil {
 			fmt.Println("GET err=", err)
 		}
 		fmt.Printf("key = %v , value = %v \n", key, val)
+	}else if command == "INCR" {
+		num, err := stringConn.Do("INCR", key)
+		if err != nil {
+			fmt.Println("INCR err=", err)
+		}
+		fmt.Printf("The length of <%v> is %v \n", key, num)
 	}else if command == "STRLEN" {
 		length, err := stringConn.Do("STRLEN", key)
 		if err != nil {
@@ -117,7 +123,7 @@ func setsOps(command string, key string, value string)  {
 	}
 }
 
-func zsetsOps(command string, key string, index int, value string)  {
+func zsetsOps(command string, key string, index int, value string, arg...string)  {
 
 	command = strings.ToUpper(command)
 	stringConn := pool.Get()
@@ -133,6 +139,13 @@ func zsetsOps(command string, key string, index int, value string)  {
 			fmt.Println("ZCARD err=", err)
 		}
 		fmt.Printf("The number of <%v> is %v\n", key, count)
+	}else if command == "ZCOUNT"{
+		begin, end := arg[0], arg[1]
+		count, err := stringConn.Do("ZCOUNT", key, begin, end)
+		if err != nil {
+			fmt.Println("ZCOUNT err=", err)
+		}
+		fmt.Printf("The number of elements of %v between %v and %v is %v\n", key, begin, end, count)
 	}else{
 		log.Fatal("current command has not been supported")
 	}
