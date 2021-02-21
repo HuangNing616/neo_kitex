@@ -1,7 +1,6 @@
 package config
 
 import (
-	"code.byted.org/gopkg/logs"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -65,7 +64,7 @@ var (
 // Init 初始化配置文件
 func Init(file string) error {
 
-	logs.Info("config file: %s", file)
+	// logs.Info("config file: %s", file)
 
 	// 打开配置文件
 	content, err := ioutil.ReadFile("../input/conf_risk_personas_backend_dev.json")
